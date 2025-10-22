@@ -19,3 +19,17 @@ roleRef:
   kind: ClusterRole
   name: edit # El rol que creamos
   apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: cicd-binding-rbac
+  namespace: jessica-cuenca-dev
+subjects:
+  - kind: ServiceAccount
+    name: cicd-serviceaccount
+    namespace: jessica-cuenca-dev
+roleRef:
+  kind: Role
+  name: rbac-edit
+  apiGroup: rbac.authorization.k8s.io
