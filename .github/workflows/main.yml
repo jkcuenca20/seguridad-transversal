@@ -20,9 +20,11 @@ jobs:
           sudo mv oc /usr/local/bin/
           oc version
 
-      - name: Login to OpenShift
-        run: |
-          oc login ${{ secrets.OCP_API }} --token=${{ secrets.OCP_TOKEN }} --insecure-skip-tls-verify
+      - name: Log in Openshift
+        uses: redhat-actions/oc-login@v1
+        with:
+          openshift_server_url: https://api.rm1.0a51.p1.openshiftapps.com:6443
+          openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
 
       - name: Apply security resources
         run: |
