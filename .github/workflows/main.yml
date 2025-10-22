@@ -24,7 +24,7 @@ jobs:
         uses: redhat-actions/oc-login@v1
         with:
           openshift_server_url: https://api.rm1.0a51.p1.openshiftapps.com:6443
-          openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
+          openshift_token: ${{ secrets.OPENSHIFT_TOKEN2 }}
 
       - name: Apply security resources
         run: |
